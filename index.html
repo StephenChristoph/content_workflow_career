@@ -49,28 +49,11 @@
             border-radius: 12px;
             padding: 24px;
             transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
         }
 
         .card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .card::after {
-            content: "Click for details →";
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            font-size: 0.75rem;
-            color: #666;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card:hover::after {
-            opacity: 1;
         }
 
         .card-header {
@@ -138,70 +121,6 @@
             font-size: 0.875rem;
         }
 
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-
-        .modal-content {
-            position: relative;
-            background: white;
-            width: 90%;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 32px;
-            border-radius: 12px;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-            background: none;
-            border: none;
-            padding: 4px;
-        }
-
-        .modal h2 {
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .modal h3 {
-            margin: 24px 0 12px;
-            color: #333;
-        }
-
-        .modal p {
-            margin-bottom: 12px;
-            line-height: 1.5;
-            color: #444;
-        }
-
-        .modal ul {
-            margin-bottom: 16px;
-            padding-left: 24px;
-        }
-
-        .modal li {
-            margin-bottom: 8px;
-            line-height: 1.5;
-            color: #444;
-        }
-
         /* Week-specific colors */
         .week1 { background: #e3f2fd; }
         .week2 { background: #e8f5e9; }
@@ -213,69 +132,176 @@
 </head>
 <body>
     <div class="container">
-        <!-- [Previous grid content remains the same until the footer] -->
-        
-        <!-- Add modals for each week -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <button class="close-button">&times;</button>
-                <h2>Week 1: Writing Cycle</h2>
-                
-                <h3>Objective</h3>
-                <p>Create foundational long-form content that will serve as the basis for all other content formats.</p>
+        <div class="header">
+            <h1>6-Week Content Marketing Workflow</h1>
+            <p>A holistic approach to content creation and distribution</p>
+        </div>
 
-                <h3>Key Activities</h3>
-                <ul>
-                    <li><strong>Content Planning:</strong> Review trending topics, audience feedback, and content calendar</li>
-                    <li><strong>Writing:</strong> Create 2-3 long-form pieces (1500+ words each)</li>
-                    <li><strong>Platform Optimization:</strong> Adapt content for Substack, Medium, and Typeshare specific requirements</li>
-                </ul>
+        <div class="grid">
+            <!-- Week 1 -->
+            <div class="card week1">
+                <div class="card-header">
+                    <div class="icon">✍️</div>
+                    <div>
+                        <div class="week-title">Week 1</div>
+                        <div class="week-subtitle">Writing Cycle</div>
+                    </div>
+                </div>
+                <div class="description">Create long-form content</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Substack</span>
+                        <span class="tag">Medium</span>
+                        <span class="tag">Typeshare</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Notion</span>
+                        <span class="tag">AI Writing Tools</span>
+                    </div>
+                </div>
+            </div>
 
-                <h3>Detailed Process</h3>
-                <ol>
-                    <li>Open Notion and review content calendar</li>
-                    <li>Draft outline for each piece</li>
-                    <li>Use AI writing tools to assist with research and initial drafts</li>
-                    <li>Edit and polish content</li>
-                    <li>Prepare platform-specific versions</li>
-                    <li>Schedule publication dates</li>
-                </ol>
+            <!-- Week 2 -->
+            <div class="card week2">
+                <div class="card-header">
+                    <div class="icon">🔄</div>
+                    <div>
+                        <div class="week-title">Week 2</div>
+                        <div class="week-subtitle">Iteration Cycle</div>
+                    </div>
+                </div>
+                <div class="description">Adapt to short-form</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">LinkedIn</span>
+                        <span class="tag">X</span>
+                        <span class="tag">BlueSky</span>
+                        <span class="tag">Threads</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Social Scheduling Tools</span>
+                    </div>
+                </div>
+            </div>
 
-                <h3>Best Practices</h3>
-                <ul>
-                    <li>Focus on evergreen topics that can be repurposed</li>
-                    <li>Include clear takeaways and actionable insights</li>
-                    <li>Optimize headlines for each platform</li>
-                    <li>Include relevant keywords for SEO</li>
-                </ul>
+            <!-- Week 3 -->
+            <div class="card week3">
+                <div class="card-header">
+                    <div class="icon">📊</div>
+                    <div>
+                        <div class="week-title">Week 3</div>
+                        <div class="week-subtitle">Feedback Cycle</div>
+                    </div>
+                </div>
+                <div class="description">Monitor & engage</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Performance Analysis</span>
+                        <span class="tag">Audience Engagement</span>
+                        <span class="tag">Documentation</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Analytics Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="card week4">
+                <div class="card-header">
+                    <div class="icon">🎥</div>
+                    <div>
+                        <div class="week-title">Week 4</div>
+                        <div class="week-subtitle">Video Production</div>
+                    </div>
+                </div>
+                <div class="description">Create video content</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">YouTube</span>
+                        <span class="tag">Shorts</span>
+                        <span class="tag">TikTok</span>
+                        <span class="tag">Reels</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">AI Video Editor</span>
+                        <span class="tag">Social Scheduling Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="card week5">
+                <div class="card-header">
+                    <div class="icon">🧠</div>
+                    <div>
+                        <div class="week-title">Week 5</div>
+                        <div class="week-subtitle">Ideation & Review</div>
+                    </div>
+                </div>
+                <div class="description">Plan next cycle</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Performance Review</span>
+                        <span class="tag">Content Planning</span>
+                        <span class="tag">Trend Analysis</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Notion</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="card week6">
+                <div class="card-header">
+                    <div class="icon">📅</div>
+                    <div>
+                        <div class="week-title">Week 6</div>
+                        <div class="week-subtitle">Reset & Begin</div>
+                    </div>
+                </div>
+                <div class="description">Start new cycle</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Apply Insights</span>
+                        <span class="tag">Prepare Resources</span>
+                        <span class="tag">Set Goals</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Planning Tools</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Similar modals for weeks 2-6 -->
-        <!-- [Add modal content for other weeks] -->
+        <div class="footer">
+            ↻ Cycle repeats with insights from previous iteration
+        </div>
     </div>
-
-    <script>
-        // Add click handlers to cards
-        document.querySelectorAll('.card').forEach((card, index) => {
-            card.addEventListener('click', () => {
-                document.getElementById(`modal${index + 1}`).style.display = 'block';
-            });
-        });
-
-        // Add close handlers to modal close buttons
-        document.querySelectorAll('.close-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.target.closest('.modal').style.display = 'none';
-            });
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
