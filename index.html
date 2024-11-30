@@ -49,11 +49,28 @@
             border-radius: 12px;
             padding: 24px;
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card::after {
+            content: "Click for details →";
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            font-size: 0.75rem;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::after {
+            opacity: 1;
         }
 
         .card-header {
@@ -121,6 +138,70 @@
             font-size: 0.875rem;
         }
 
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 32px;
+            border-radius: 12px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .modal h2 {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal h3 {
+            margin: 24px 0 12px;
+            color: #333;
+        }
+
+        .modal p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .modal ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        .modal li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #444;
+        }
+
         /* Week-specific colors */
         .week1 { background: #e3f2fd; }
         .week2 { background: #e8f5e9; }
@@ -136,7 +217,7 @@
             <h1>6-Week Content Marketing Workflow</h1>
             <p>A holistic approach to content creation and distribution</p>
         </div>
-
+        
         <div class="grid">
             <!-- Week 1 -->
             <div class="card week1">
@@ -302,6 +383,74 @@
         <div class="footer">
             ↻ Cycle repeats with insights from previous iteration
         </div>
-    </div>
-</body>
-</html>
+
+        <!-- Week 1 Modal -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <button class="close-button">&times;</button>
+                <h2>Week 1: Writing Cycle</h2>
+                
+                <h3>Objective</h3>
+                <p>Create foundational long-form content that will serve as the basis for all other content formats.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Content Planning:</strong> Review trending topics, audience feedback, and content calendar</li>
+                    <li><strong>Writing:</strong> Create 2-3 long-form pieces (1500+ words each)</li>
+                    <li><strong>Platform Optimization:</strong> Adapt content for Substack, Medium, and Typeshare specific requirements</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Open Notion and review content calendar</li>
+                    <li>Draft outline for each piece</li>
+                    <li>Use AI writing tools to assist with research and initial drafts</li>
+                    <li>Edit and polish content</li>
+                    <li>Prepare platform-specific versions</li>
+                    <li>Schedule publication dates</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Focus on evergreen topics that can be repurposed</li>
+                    <li>Include clear takeaways and actionable insights</li>
+                    <li>Optimize headlines for each platform</li>
+                    <li>Include relevant keywords for SEO</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Week 2 Modal -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <button class="close-button">&times;</button>
+                <h2>Week 2: Iteration Cycle</h2>
+                
+                <h3>Objective</h3>
+                <p>Transform long-form content into engaging short-form posts for social media platforms.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Content Breakdown:</strong> Extract key points from Week 1's content</li>
+                    <li><strong>Platform Adaptation:</strong> Create platform-specific versions</li>
+                    <li><strong>Schedule Management:</strong> Plan posting timeline</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Review Week 1's content and identify key takeaways</li>
+                    <li>Create content calendar for social posts</li>
+                    <li>Adapt content for each platform:
+                        <ul>
+                            <li>LinkedIn: Professional insights</li>
+                            <li>X: Concise threads</li>
+                            <li>BlueSky: Conversation starters</li>
+                            <li>Threads: Engaging narratives</li>
+                        </ul>
+                    </li>
+                    <li>Set up scheduling in social media management tools</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Maintain
