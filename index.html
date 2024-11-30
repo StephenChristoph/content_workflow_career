@@ -169,9 +169,15 @@
             font-size: 24px;
             cursor: pointer;
             color: #666;
-            background: none;
+            background: #f0f0f0;
             border: none;
-            padding: 4px;
+            padding: 4px 12px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: #e0e0e0;
         }
 
         .modal h2 {
@@ -209,22 +215,6 @@
         .week4 { background: #f3e5f5; }
         .week5 { background: #fafafa; }
         .week6 { background: #fffde7; }
-
-        /* Make close button more visible */
-        .close-button {
-            background: #f0f0f0;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .close-button:hover {
-            background: #e0e0e0;
-        }
     </style>
 </head>
 <body>
@@ -234,7 +224,7 @@
             <p>A holistic approach to content creation and distribution</p>
         </div><div class="grid">
             <!-- Week 1 Card -->
-            <div class="card week1" onclick="openModal(1)">
+            <div class="card week1" data-week="1">
                 <div class="card-header">
                     <div class="icon">✍️</div>
                     <div>
@@ -261,7 +251,7 @@
             </div>
 
             <!-- Week 2 Card -->
-            <div class="card week2" onclick="openModal(2)">
+            <div class="card week2" data-week="2">
                 <div class="card-header">
                     <div class="icon">🔄</div>
                     <div>
@@ -287,24 +277,346 @@
                 </div>
             </div>
 
-            <!-- Add cards for Weeks 3-6 with the same structure -->
-            <!-- [Previous cards for weeks 3-6 here] -->
+            <!-- Week 3 Card -->
+            <div class="card week3" data-week="3">
+                <div class="card-header">
+                    <div class="icon">📊</div>
+                    <div>
+                        <div class="week-title">Week 3</div>
+                        <div class="week-subtitle">Feedback Cycle</div>
+                    </div>
+                </div>
+                <div class="description">Monitor & engage</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Performance Analysis</span>
+                        <span class="tag">Audience Engagement</span>
+                        <span class="tag">Documentation</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Analytics Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 Card -->
+            <div class="card week4" data-week="4">
+                <div class="card-header">
+                    <div class="icon">🎥</div>
+                    <div>
+                        <div class="week-title">Week 4</div>
+                        <div class="week-subtitle">Video Production</div>
+                    </div>
+                </div>
+                <div class="description">Create video content</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">YouTube</span>
+                        <span class="tag">Shorts</span>
+                        <span class="tag">TikTok</span>
+                        <span class="tag">Reels</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">AI Video Editor</span>
+                        <span class="tag">Social Scheduling Tools</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 5 Card -->
+            <div class="card week5" data-week="5">
+                <div class="card-header">
+                    <div class="icon">🧠</div>
+                    <div>
+                        <div class="week-title">Week 5</div>
+                        <div class="week-subtitle">Ideation & Review</div>
+                    </div>
+                </div>
+                <div class="description">Plan next cycle</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Performance Review</span>
+                        <span class="tag">Content Planning</span>
+                        <span class="tag">Trend Analysis</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Notion</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6 Card -->
+            <div class="card week6" data-week="6">
+                <div class="card-header">
+                    <div class="icon">📅</div>
+                    <div>
+                        <div class="week-title">Week 6</div>
+                        <div class="week-subtitle">Reset & Begin</div>
+                    </div>
+                </div>
+                <div class="description">Start new cycle</div>
+                <div class="section">
+                    <div class="section-title">Outputs:</div>
+                    <div class="tags">
+                        <span class="tag">Apply Insights</span>
+                        <span class="tag">Prepare Resources</span>
+                        <span class="tag">Set Goals</span>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Tools:</div>
+                    <div class="tags">
+                        <span class="tag">Planning Tools</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Modal windows -->
+        <div class="footer">
+            ↻ Cycle repeats with insights from previous iteration
+        </div><!-- Week 1 Modal -->
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <button class="close-button" onclick="closeModal(1)">&times;</button>
                 <h2>Week 1: Writing Cycle</h2>
-                <!-- [Previous Week 1 modal content] -->
+                
+                <h3>Objective</h3>
+                <p>Create foundational long-form content that will serve as the basis for all other content formats.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Content Planning:</strong> Review trending topics, audience feedback, and content calendar</li>
+                    <li><strong>Writing:</strong> Create 2-3 long-form pieces (1500+ words each)</li>
+                    <li><strong>Platform Optimization:</strong> Adapt content for Substack, Medium, and Typeshare specific requirements</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Open Notion and review content calendar</li>
+                    <li>Draft outline for each piece</li>
+                    <li>Use AI writing tools to assist with research and initial drafts</li>
+                    <li>Edit and polish content</li>
+                    <li>Prepare platform-specific versions</li>
+                    <li>Schedule publication dates</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Focus on evergreen topics that can be repurposed</li>
+                    <li>Include clear takeaways and actionable insights</li>
+                    <li>Optimize headlines for each platform</li>
+                    <li>Include relevant keywords for SEO</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Add modals for weeks 2-6 -->
-        <!-- [Previous modals for weeks 2-6 here] -->
-    </div>
+        <!-- Week 2 Modal -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal(2)">&times;</button>
+                <h2>Week 2: Iteration Cycle</h2>
+                
+                <h3>Objective</h3>
+                <p>Transform long-form content into engaging short-form posts for social media platforms.</p>
 
-    <script>
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Content Breakdown:</strong> Extract key points from Week 1's content</li>
+                    <li><strong>Platform Adaptation:</strong> Create platform-specific versions</li>
+                    <li><strong>Schedule Management:</strong> Plan posting timeline</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Review Week 1's content and identify key takeaways</li>
+                    <li>Create content calendar for social posts</li>
+                    <li>Adapt content for each platform:
+                        <ul>
+                            <li>LinkedIn: Professional insights</li>
+                            <li>X: Concise threads</li>
+                            <li>BlueSky: Conversation starters</li>
+                            <li>Threads: Engaging narratives</li>
+                        </ul>
+                    </li>
+                    <li>Set up scheduling in social media management tools</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Maintain consistent brand voice across platforms</li>
+                    <li>Use platform-specific features (polls, carousels)</li>
+                    <li>Include relevant hashtags strategically</li>
+                    <li>Time posts for optimal engagement</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Week 3 Modal -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal(3)">&times;</button>
+                <h2>Week 3: Real-Time Feedback Cycle</h2>
+                
+                <h3>Objective</h3>
+                <p>Monitor content performance and engage with audience responses.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Performance Analysis:</strong> Track metrics across platforms</li>
+                    <li><strong>Engagement:</strong> Respond to comments and messages</li>
+                    <li><strong>Documentation:</strong> Record insights for future cycles</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Review analytics for all platforms</li>
+                    <li>Document key metrics in Notion</li>
+                    <li>Respond to audience engagement</li>
+                    <li>Identify trending topics and discussions</li>
+                    <li>Update content calendar based on insights</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Respond to comments within 24 hours</li>
+                    <li>Track both quantitative and qualitative feedback</li>
+                    <li>Note successful content patterns</li>
+                    <li>Document audience questions for future content</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Week 4 Modal -->
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal(4)">&times;</button>
+                <h2>Week 4: Video Production</h2>
+                
+                <h3>Objective</h3>
+                <p>Create video content based on successful written content and insights.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Content Selection:</strong> Choose top-performing topics</li>
+                    <li><strong>Video Production:</strong> Record and edit content</li>
+                    <li><strong>Platform Optimization:</strong> Adapt for different video formats</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Select content based on Week 3 insights</li>
+                    <li>Script and storyboard videos</li>
+                    <li>Record content in batches</li>
+                    <li>Edit using AI video tools</li>
+                    <li>Create platform-specific versions:
+                        <ul>
+                            <li>YouTube: Detailed content</li>
+                            <li>Shorts/Reels/TikTok: Key highlights</li>
+                        </ul>
+                    </li>
+                    <li>Schedule posts using social tools</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Maintain consistent lighting and audio quality</li>
+                    <li>Include captions on all videos</li>
+                    <li>Optimize thumbnails and titles</li>
+                    <li>Use platform-specific aspect ratios</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Week 5 Modal -->
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal(5)">&times;</button>
+                <h2>Week 5: Ideation & Review</h2>
+                
+                <h3>Objective</h3>
+                <p>Analyze overall performance and plan future content strategies.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Performance Review:</strong> Comprehensive analysis</li>
+                    <li><strong>Strategy Planning:</strong> Future content mapping</li>
+                    <li><strong>Resource Planning:</strong> Tool and process evaluation</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Compile performance data from all platforms</li>
+                    <li>Review audience growth and engagement trends</li>
+                    <li>Identify content gaps and opportunities</li>
+                    <li>Update content strategy document</li>
+                    <li>Plan next cycle's focus areas</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Compare performance across platforms</li>
+                    <li>Document successful content patterns</li>
+                    <li>Update buyer personas if needed</li>
+                    <li>Review tool effectiveness</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Week 6 Modal -->
+        <div id="modal6" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal(6)">&times;</button>
+                <h2>Week 6: Reset & Begin</h2>
+                
+                <h3>Objective</h3>
+                <p>Prepare for the next content cycle while maintaining momentum.</p>
+
+                <h3>Key Activities</h3>
+                <ul>
+                    <li><strong>Planning:</strong> Set up next cycle's calendar</li>
+                    <li><strong>Resource Preparation:</strong> Update tools and templates</li>
+                    <li><strong>Team Alignment:</strong> Share insights and goals</li>
+                </ul>
+
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Review Week 5's strategic plan</li>
+                    <li>Update content calendar</li>
+                    <li>Refresh templates and workflows</li>
+                    <li>Set specific goals for next cycle</li>
+                    <li>Prepare Week 1 content briefs</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Maintain content buffer for consistency</li>
+                    <li>Update style guides as needed</li>
+                    <li>Review and adjust KPIs</li>
+                    <li>Document process improvements</li>
+                </ul>
+            </div>
+        </div>
+    </div><script>
+        // Add click handlers to all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                const week = this.getAttribute('data-week');
+                openModal(week);
+            });
+        });
+
         // Function to open modal
         function openModal(weekNum) {
             document.getElementById('modal' + weekNum).style.display = 'block';
